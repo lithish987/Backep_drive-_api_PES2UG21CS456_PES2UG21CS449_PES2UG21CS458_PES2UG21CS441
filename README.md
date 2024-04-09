@@ -55,17 +55,21 @@ This project demonstrates how to set up a Kubernetes CronJob to automate backup 
 #Build Docker Image:
    ```bash
    docker build -t backup-service .
-
+```
 #Create Kubernetes Resources:
 
-PersistentVolumeClaim:
+#PersistentVolumeClaim:
+```
 kubectl apply -f pvc.yaml
-
+```
 #Secret (for Google Drive API token):
+```
 kubectl create secret generic google-token --from-file=token.json
-
+```
 # Kubernetes CronJob for Backup Service
+```
 kubectl logs -f <pod_name>
+```
  'It is imprtant to not share your credentials file to anyone ansd also give rquired permissions in google project for api drive
 ## Overview
 
