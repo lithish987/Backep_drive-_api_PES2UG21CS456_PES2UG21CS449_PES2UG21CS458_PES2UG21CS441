@@ -34,3 +34,46 @@
  4. Please don't upload your containers publicly onto public registries like DockerHub as sensitive Gdrive data might get leaked.
 ### Bonus
 Can you come up with small gui to schedule the frequency of upload?
+# Kubernetes CronJob for Backup Service
+
+## Overview
+
+This project demonstrates how to set up a Kubernetes CronJob to automate backup tasks using a backup service. The CronJob is configured to run at midnight every day, triggering a backup operation in a Kubernetes cluster.
+
+## Prerequisites
+
+- Kubernetes cluster (e.g., Minikube, Docker Desktop with Kubernetes enabled)
+- `kubectl` command-line tool installed and configured to connect to your Kubernetes cluster
+
+## Usage
+
+1. **Clone the Repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/backup-service.git
+   cd backup-service
+#Build Docker Image:
+docker build -t backup-service .
+#Create Kubernetes Resources:
+
+PersistentVolumeClaim:
+kubectl apply -f pvc.yaml
+
+#Secret (for Google Drive API token):
+kubectl create secret generic google-token --from-file=token.json
+
+# Kubernetes CronJob for Backup Service
+kubectl logs -f <pod_name>
+ 'It is imprtant to not share your credentials file to anyone ansd also give rquired permissions in google project for api drive
+## Overview
+
+This project demonstrates how to set up a Kubernetes CronJob to automate backup tasks using a backup service. The CronJob is configured to run at midnight every day, triggering a backup operation in a Kubernetes cluster.
+
+## Prerequisites
+
+- Kubernetes cluster (e.g., Minikube, Docker Desktop with Kubernetes enabled)
+- `kubectl` command-line tool installed and configured to connect to your Kubernetes cluster
+
+
+
+
