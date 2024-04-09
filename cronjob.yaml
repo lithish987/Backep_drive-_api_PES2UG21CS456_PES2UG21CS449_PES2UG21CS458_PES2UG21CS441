@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: backup-cronjob
+spec:
+  schedule: '0 0 * * *'  # Example schedule at midnight daily
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: backup-image:latest
+            # Add your container configuration here
+          restartPolicy: OnFailure  # This is not needed and should be removed
